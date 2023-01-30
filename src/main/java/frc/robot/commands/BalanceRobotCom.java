@@ -3,6 +3,7 @@ package frc.robot.commands;
 
 import frc.robot.subsystems.DriveTrainSub;
 import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 
@@ -29,6 +30,7 @@ public class BalanceRobotCom extends CommandBase {
   public void execute() {
     double speed = m_PidController.calculate(m_driveSubsystem.getNavX());
     m_driveSubsystem.setBalanceMotor(speed);
+    SmartDashboard.putString("Status", "The Balance Command is running");
   }
 
   @Override

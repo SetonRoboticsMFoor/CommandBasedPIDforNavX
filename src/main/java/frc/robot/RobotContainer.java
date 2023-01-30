@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.BalanceRobotCom;
+import frc.robot.commands.JoystickDriveCom;
 import frc.robot.subsystems.DriveTrainSub;
 
 public class RobotContainer {
@@ -13,7 +14,7 @@ public class RobotContainer {
   private final JoystickButton balanceButton2 = new JoystickButton(driveStick, Constants.JoystickBalanceToggleChannel);
 
   public RobotContainer() {
-    m_DriveTrainSub.setDefaultCommand(new BalanceRobotCom(m_DriveTrainSub, driveStick.getRawAxis(0)));
+    m_DriveTrainSub.setDefaultCommand(new JoystickDriveCom(m_DriveTrainSub, () ->driveStick.getRawAxis(1)));
     configureBindings();
   }
 
